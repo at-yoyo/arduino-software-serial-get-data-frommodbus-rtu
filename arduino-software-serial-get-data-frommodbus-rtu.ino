@@ -250,7 +250,10 @@ void final_23_bits(uint16_t BIT_2,uint16_t BIT_3,uint16_t BIT_4){
    BIN2DEC_G11 = strtol(INPUT_BINARY_STRING_4, NULL, 2);
 }
 
-/*----------------FUNCTION FOR CALCULATOR MODBUS RTU CRC 16----------------*/
+/*
+----------------FUNCTION FOR CALCULATOR MODBUS RTU CRC 16----------------
+https://stackoverflow.com/questions/19347685/calculating-modbus-rtu-crc-16
+*/
 void add_modbus_rtu_crc(uint8_t* BUF, int LEN){
   unsigned int CRC_ = 0xFFFF;
   for (int POS = 0; POS < LEN; POS++) {
@@ -268,7 +271,10 @@ void add_modbus_rtu_crc(uint8_t* BUF, int LEN){
   MESSAGE[LEN + 1] = (CRC & long(255*256))>>8;
 }
 
-/*----------------FUNCTION FOR CALCULATOR HEX TO DEC----------------*/
+/*
+----------------FUNCTION FOR CALCULATOR HEX TO DEC----------------
+https://stackoverflow.com/questions/58051121/print-only-7-last-numbers-from-long-long-int
+*/
 unsigned int hex_to_dec(String HEX_STR) {
   unsigned int DEC_VALUE = 0;
   int NEXT_INT;
@@ -283,7 +289,10 @@ unsigned int hex_to_dec(String HEX_STR) {
   return DEC_VALUE;
 }
 
-/*----------------FUNCTION FOR CHECK DATA TYPE----------------*/
+/*
+----------------FUNCTION FOR CHECK DATA TYPE----------------
+https://arduino.stackexchange.com/questions/3079/how-to-retrieve-the-data-type-of-a-variable
+*/
 void check_types(String DATA) { Serial.println("DATA = String"); }
 void check_types(int DATA) { Serial.println("DATA = int"); }
 void check_types(char *DATA) { Serial.println("DATA = char*"); }
